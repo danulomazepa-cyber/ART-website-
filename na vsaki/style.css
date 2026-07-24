@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E0E0E0;
+    font-family: sans-serif;
+    position: relative;
+}
+
+/* Боковий фон (декор) */
+.side_decor {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: calc((100vw - 1069px) / 2 - 20px);
+    min-width: 120px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.16;
+    filter: grayscale(100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.left_decor {
+    left: 0;
+    background-image: url('foto/celik.jpg');
+}
+
+.right_decor {
+    right: 0;
+    background-image: url('foto/topor.jpg');
+}
+
+@media (max-width: 1400px) {
+    .side_decor {
+        display: none;
+    }
+}
+
+/* Пріоритет шарів над фоном */
+.header, .gallery, .sketches, .preview_box, .footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Шапка та навігація */
+.header {
+    width: 100%;
+}
+
+.nav_bar {
+    max-width: 1069px;
+    margin: 0 auto;
+    background-color: #D0D0D0;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.logo img {
+    height: 50px;
+    display: block;
+}
+
+.menu_list {
+    display: flex;
+    list-style: none;
+    gap: 45px;
+}
+
+.nav_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    width: 180px;
+    height: 55px;
+    border-radius: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Orelega One', sans-serif;
+    transition: opacity 0.2s;
+}
+
+.nav_btn:hover {
+    opacity: 0.9;
+}
+
+.pink { background-color: #D59B9B; }
+.brown { background-color: #5D4343; }
+
+/* Слоган */
+.slogan_box {
+    max-width: 1069px;
+    margin: 15px auto 0 auto;
+    background-color: #5D4343;
+    border-radius: 20px;
+    padding: 12px 20px;
+}
+
+.slogan_box h1 {
+    color: #ffffff;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: 'Climate Crisis', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Галерея */
+.gallery {
+    max-width: 1069px;
+    margin: 20px auto;
+    background-color: #D0D0D0;
+    border-radius: 12px;
+    padding: 25px 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.gallery_strip {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 90px;
+    background-color: #5D4343;
+    z-index: 1;
+}
+
+.cards_wrapper {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    width: 135px;
+    height: 200px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    border: 3px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    border-color: #3b82f6;
+}
+
+.card.active {
+    border-color: #5D4343;
+    transform: scale(1.03);
+}
+
+/* Банер ескізів */
+.sketches {
+    max-width: 1069px;
+    height: 150px;
+    margin: 15px auto;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.sketches_track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sketches_track img {
+    width: 25%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sketches_filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 67, 67, 0.65);
+    pointer-events: none;
+}
+
+/* Секція перегляду */
+.preview_box {
+    max-width: 1069px;
+    margin: 20px auto 40px auto;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.preview_inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-height: 480px;
+}
+
+.info_col {
+    width: 55%;
+    padding: 40px;
+    z-index: 2;
+}
+
+.info_col h2 {
+    color: #5D4343;
+    font-size: 26px;
+    margin-bottom: 18px;
+    font-family: 'Climate Crisis', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info_col p {
+    color: #5D4343;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.6;
+    font-family: 'Orelega One', sans-serif;
+}
+
+.image_col {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.big_image_frame {
+    width: 260px;
+    height: 380px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    left: -110px;
+    z-index: 3;
+    flex-shrink: 0;
+}
+
+.big_image_frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Додайте цей рядок, якщо його не було */
+}
+
+.pink_bg_block {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #D59B9B;
+    z-index: 1;
+}
+
+/* Футер */
+.footer {
+    max-width: 1069px;
+    margin: 0 auto 30px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.footer_brown {
+    width: 100%;
+    height: 45px;
+    background-color: #5D4343;
+}
+
+.footer_pink {
+    width: 100%;
+    height: 70px;
+    background-color: #D59B9B;
+}
